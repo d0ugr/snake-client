@@ -1,3 +1,5 @@
+const constants = require("./constants");
+
 // Stores the active TCP connection object.
 let connection;
 
@@ -21,26 +23,26 @@ const setupInput = function(conn) {
 
 const handleUserInput = function(key) {
 
-  switch (key.toLowerCase()) {
-    case "w":
-      connection.write("Move: up");
+  switch (key.toUpperCase()) {
+    case constants.KEY_MOVE_UP:
+      connection.write(`${constants.CMD_MOVE}up`);
       break;
-    case "s":
-      connection.write("Move: down");
+    case constants.KEY_MOVE_DOWN:
+      connection.write(`${constants.CMD_MOVE}down`);
       break;
-    case "a":
-      connection.write("Move: left");
+    case constants.KEY_MOVE_LEFT:
+      connection.write(`${constants.CMD_MOVE}left`);
       break;
-    case "d":
-      connection.write("Move: right");
+    case constants.KEY_MOVE_RIGHT:
+      connection.write(`${constants.CMD_MOVE}right`);
       break;
-    case "y":
-      connection.write("Say: j00 suxx0r!!!");
+    case constants.KEY_CHAT_1:
+      connection.write(`${constants.CMD_SAY}j00 suxx0r!!!`);
       break;
-    case "t":
-      connection.write("Say: pwned");
+    case constants.KEY_CHAT_2:
+      connection.write(`${constants.CMD_SAY}pwned`);
       break;
-      case "\x03":
+    case constants.KEY_EXIT:
       process.exit();
       break;
     }

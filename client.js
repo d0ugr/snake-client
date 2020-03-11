@@ -1,13 +1,15 @@
 const net = require("net");
 
+const constants = require("./constants");
+
 /**
  * Establishes connection with the game server
  */
 const connect = function() {
 
   const conn = net.createConnection({
-    host: "localhost",
-    port: 50541
+    host: constants.NET_HOST,
+    port: constants.NET_PORT
   });
 
   // interpret incoming data as text
@@ -16,7 +18,7 @@ const connect = function() {
   conn.on("connect", () => {
 
     console.log("connected to snek");
-    conn.write("Name: ASS");
+    conn.write(`${constants.CMD_NAME}ASS`);
 
   });
 
