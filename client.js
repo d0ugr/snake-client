@@ -54,7 +54,7 @@ const connect = function() {
 
   conn.on("end", () => {
 
-    console.log("snek gone")
+    console.log("snek gone");
     process.exit();
 
   });
@@ -68,6 +68,6 @@ const connect = function() {
   });
 
   return conn;
-}
+};
 
 module.exports = { connect };
