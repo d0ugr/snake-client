@@ -13,7 +13,14 @@ const connect = function() {
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
-  conn.on("data", (data) => console.log(data));
+  conn.on("connect", () => {
+    console.log("Connected to snek");
+    conn.write("Name: ASS");
+  });
+
+  conn.on("data", (data) => {
+    console.log(data);
+  });
 
   return conn;
 }
