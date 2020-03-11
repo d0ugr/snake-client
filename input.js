@@ -22,9 +22,6 @@ const setupInput = function(conn) {
 const handleUserInput = function(key) {
 
   switch (key.toLowerCase()) {
-    case "\x03":
-      process.exit();
-      break;
     case "w":
       connection.write("Move: up");
       break;
@@ -37,7 +34,16 @@ const handleUserInput = function(key) {
     case "d":
       connection.write("Move: right");
       break;
-  }
+    case "y":
+      connection.write("Say: j00 suxx0r!!!");
+      break;
+    case "t":
+      connection.write("Say: pwned");
+      break;
+      case "\x03":
+      process.exit();
+      break;
+    }
 
 }
 
