@@ -15,7 +15,7 @@ const connect = function() {
 
   conn.on("connect", () => {
 
-    console.log("Connected to snek");
+    console.log("connected to snek");
     conn.write("Name: ASS");
 
   });
@@ -47,6 +47,13 @@ const connect = function() {
   conn.on("data", (data) => {
 
     console.log(data);
+
+  });
+
+  conn.on("end", () => {
+
+    console.log("snek gone")
+    process.exit();
 
   });
 
