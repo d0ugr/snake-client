@@ -14,12 +14,48 @@ const connect = function() {
   conn.setEncoding("utf8");
 
   conn.on("connect", () => {
+
     console.log("Connected to snek");
     conn.write("Name: ASS");
+
+  });
+
+  // let snekTimer = 0;
+
+  conn.on("connect", () => {
+
+    // snekTimer = setInterval(() => conn.write("Move: up"), 500);
+
+    // console.log("Snek donuts!!!");
+    // for (let i = 0; i < 10; i++) {
+    //   conn.write("Move: up");
+    //   conn.write("Move: up");
+    //   conn.write("Move: up");
+    //   conn.write("Move: right");
+    //   conn.write("Move: right");
+    //   conn.write("Move: right");
+    //   conn.write("Move: down");
+    //   conn.write("Move: down");
+    //   conn.write("Move: down");
+    //   conn.write("Move: left");
+    //   conn.write("Move: left");
+    //   conn.write("Move: left");
+    // }
+
   });
 
   conn.on("data", (data) => {
+
     console.log(data);
+
+  });
+
+  conn.on("error", (error) => {
+
+    console.log(error);
+    // clearTimeout(snekTimer);
+    process.exit();
+
   });
 
   return conn;
